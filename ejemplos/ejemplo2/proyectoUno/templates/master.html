@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
 
@@ -59,5 +59,117 @@
       <p>Loja-Ecuador</p>
       <p>{% now "j F Y H:i" %}</p>
     </footer>
+  </body>
+</html>
+-------------------------------
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {% load static %}
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload homepage">
+    {% load socialaccount %}
+    {% load account %}
+    <div id="page-wrapper">
+
+      <!-- Header -->
+        <div id="header-wrapper">
+          <header id="header" class="container">
+
+            <!-- Logo -->
+              <div id="logo">
+                <img src="{% static 'images/logo.png' %}" height="10%" width="10%">
+                  <h1>Aplicación Administración - 2 </h1>
+                  <div class="">
+        {% if messages %}
+          <div class="messages">
+            {% for message in messages %}
+            <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+    </div>
+              </div>
+               <div class="">
+        {% if messages %}
+          <div class="messages">
+            {% for message in messages %}
+            <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+    </div>
+            <!-- Nav -->
+              <nav id="nav">
+                <ul>
+                  {% if user.is_authenticated %}
+                  <li class="current"><span class="nombre_usuario">Bienvenido:{{user.username}}<a href="index.html"> </a></li>
+                  {% endif %}
+                  <li><a href="{% url 'index' %}">inicio</a>
+                  </li>
+                  <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
+                  <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a href="{% url 'logout_view' %}">salir</a></li>
+                  {% else %}
+                  <li>[<a href="{% url 'login' %}">ingresar</a>]</li>
+          <li>[<a href="{% provider_login_url 'github' %}">ingresar con GitHub</a>]</li>
+        {% endif %}
+                </ul>
+              </nav>
+
+          </header>
+        </div>
+
+      <!-- Banner -->
+        <div id="banner-wrapper">
+          <div id="banner" class="box container">
+            <div class="row">
+              <div class="col-7 col-12-medium">
+                <h2>Hi. This is Verti.</h2>
+                <p>It's a free responsive site template by HTML5 UP</p>
+              </div>
+              <div class="col-5 col-12-medium">
+                <ul>
+                  <li><a href="#" class="button large icon solid fa-arrow-circle-right">Ok let's go</a></li>
+                  <li><a href="#" class="button alt large icon solid fa-question-circle">More info</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <!-- Footer -->
+        <div id="footer-wrapper">
+          <footer id="footer" class="container">
+            <div class="row">
+              <div class="col-3 col-6-medium col-12-small">
+
+                <!-- Links -->
+                  <section class="widget links">
+                    <p>Loja-Ecuador</p>
+                        <p>{% now "j F Y H:i" %}</p>
+                  </section>
+
+              
+
+    <!-- Scripts -->
+
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.dropotron.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+
   </body>
 </html>
