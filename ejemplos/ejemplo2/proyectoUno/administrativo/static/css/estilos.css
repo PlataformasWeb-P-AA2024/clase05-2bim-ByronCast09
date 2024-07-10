@@ -180,6 +180,7 @@ input, select, textarea {
   hr {
     border: 0;
     border-top: solid 1px #eee;
+    color: black;
   }
 
   blockquote {
@@ -1935,6 +1936,7 @@ input, select, textarea {
 
   #logo {
     display: inline-block;
+
   }
 
     #logo h1 {
@@ -2673,12 +2675,71 @@ input, select, textarea {
         padding-bottom: 3em;
       }
 
+  #tabla_datos {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #tabla_datos th, #tabla_datos td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        #tabla_datos th {
+            background-color: grey;
+            text-align: left;
+        }
+
+        /* Estilo para las opciones de enlace */
+        #tabla_datos a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        #tabla_datos a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para los botones de acción */
+        #tabla_datos .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #tabla_datos .btn-editar {
+            background-color: #ffc107;
+            color: grey;
+        }
+
+        #tabla_datos .btn-eliminar {
+            background-color: #dc3545;
+            color: grey;
+        }
+
+        #tabla_datos .btn-ver {
+            background-color: #17a2b8;
+            color: grey;
+        }
+
+        /* Línea separadora entre filas */
+        #tabla_datos tr {
+            border-bottom: 1px solid #ccc;
+        }
+        #tabla_datos tr:hover {
+  background-color: #258EAD;
+}
+
+
     /* Footer */
 
       #footer section {
         border-bottom: solid 1px #ccc;
         padding-bottom: 3em;
         margin-bottom: 1em !important;
+        background: #5E5E5E;
+        color: #FFF;
       }
 
       #copyright {
