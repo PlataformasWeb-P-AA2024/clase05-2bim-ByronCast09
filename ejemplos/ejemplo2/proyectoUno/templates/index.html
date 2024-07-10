@@ -4,7 +4,14 @@
   Listado de Estudiantes
 {% endblock %}
 
+{% block banner %}
+{% endblock %}
+
+{% block features %}
+{% endblock %}
+
 {% block content %}
+{% if request.resolver_match.url_name == 'index' %}
 <h3>Número de estudiantes {{ numero_estudiantes }}</h3>
 
 <table id="tabla_datos">
@@ -50,4 +57,5 @@
     $('#tabla_datos').DataTable();
   });
 </script>
+{% endif %}
 {% endblock %}

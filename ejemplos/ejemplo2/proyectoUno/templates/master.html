@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -15,161 +14,139 @@
       {% endblock %}
     </title>
   </head>
-  <body>
-    <!-- paso 5-->
-    {% load socialaccount %}
-    {% load account %}
-  <header>
-    <img src="{% static 'images/logo.png' %}" height="10%" width="10%" alt="My image">
-    <h1>Aplicación Administración - 2 </h1>
-
-    <div class="">
-        {% if messages %}
-          <div class="messages">
-            {% for message in messages %}
-            <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
-            {% endfor %}
-          </div>
-        {% endif %}
-    </div>
-    <nav class="top_menu">
-      <ul>
-
-        {% if user.is_authenticated %}
-          <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
-        {% endif %}
-        <li><a href="{% url 'index' %}">inicio</a></li>
-        <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
-        <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
-        {% if user.is_authenticated %}
-          <li><a href="{% url 'logout_view' %}">salir</a></li>
-        {% else %}
-          <li>[<a href="{% url 'login' %}">ingresar</a>]</li>
-          <li>[<a href="{% provider_login_url 'github' %}">ingresar con GitHub</a>]</li>
-        {% endif %}
-      </ul>
-    </nav>
-  </header>
-  <section>
-      {% block content %}
-      {% endblock %}
-  </section>
-
-    <footer>
-      <p>Loja-Ecuador</p>
-      <p>{% now "j F Y H:i" %}</p>
-    </footer>
-  </body>
-</html>
--------------------------------
-<!DOCTYPE HTML>
-
-<html>
-  <head>
-    <title>
-      {% block title %}
-      {% endblock %}
-    </title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    {% load static %}
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
   <body class="is-preload homepage">
-    {% load socialaccount %}
-    {% load account %}
     <div id="page-wrapper">
+      {% load socialaccount %}
+      {% load account %}
 
       <!-- Header -->
-        <div id="header-wrapper">
-          <header id="header" class="container">
-
-            <!-- Logo -->
-              <div id="logo">
-                <img src="{% static 'images/logo.png' %}" height="10%" width="10%">
-                  <h1>Aplicación Administración - 2 </h1>
-                  <div class="">
-        {% if messages %}
-          <div class="messages">
-            {% for message in messages %}
-            <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
-            {% endfor %}
+      <div id="header-wrapper">
+        <header id="header" class="container">
+          <!-- Logo -->
+          <div id="logo">
+            <img src="" height="10%" width="10%">
+            <h1><a href="{% url 'index' %}">Administración</a></h1>
+            <span></span>
           </div>
-        {% endif %}
-    </div>
-              </div>
-               <div class="">
-        {% if messages %}
-          <div class="messages">
-            {% for message in messages %}
-            <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
-            {% endfor %}
-          </div>
-        {% endif %}
-    </div>
-            <!-- Nav -->
-              <nav id="nav">
-                <ul>
-                  {% if user.is_authenticated %}
-                  <li class="current"><span class="nombre_usuario">Bienvenido:{{user.username}}<a href="index.html"> </a></li>
-                  {% endif %}
-                  <li><a href="{% url 'index' %}">inicio</a>
-                  </li>
-                  <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
-                  <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
-                  {% if user.is_authenticated %}
-                  <li><a href="{% url 'logout_view' %}">salir</a></li>
-                  {% else %}
-                  <li>[<a href="{% url 'login' %}">ingresar</a>]</li>
-          <li>[<a href="{% provider_login_url 'github' %}">ingresar con GitHub</a>]</li>
-        {% endif %}
-                </ul>
-              </nav>
 
-          </header>
-        </div>
+          <!-- Nav -->
+          <nav id="nav">
+            <ul>
+              <li class="current"><a href="{% url 'index' %}">inicio</a></li>
 
+              <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
+              <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'logout_view' %}">salir</a></li>
+                <li><span class="nombre_usuario">Bienvenido: {{user.username}}</span></li>
+              {% else %}
+                <li><a href="{% url 'login' %}">ingresar</a></li>
+                <li><a href="{% provider_login_url 'github' %}">ingresar con GitHub</a></li>
+              {% endif %}
+            </ul>
+          </nav>
+        </header>
+      </div>
+      {% block banner %}
       <!-- Banner -->
-        <div id="banner-wrapper">
-          <div id="banner" class="box container">
+      <div id="banner-wrapper">
+        <div id="banner" class="box container">
+          <div class="row">
+            <div class="col-7 col-12-medium">
+              <h2>Hi. This is Verti.</h2>
+              <p>It's a free responsive site template by HTML5 UP</p>
+            </div>
+            <div class="col-5 col-12-medium">
+              <ul>
+                <li><a href="#" class="button large icon solid fa-arrow-circle-right">Ok let's go</a></li>
+                <li><a href="#" class="button alt large icon solid fa-question-circle">More info</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock %}
+      {% block features %}
+      <!-- Features -->
+        <div id="features-wrapper">
+          <div class="container">
             <div class="row">
-              <div class="col-7 col-12-medium">
-                <h2>Hi. This is Verti.</h2>
-                <p>It's a free responsive site template by HTML5 UP</p>
+              <div class="col-4 col-12-medium">
+
+                <!-- Box -->
+                  <section class="box feature">
+                    <a href="#" class="image featured"><img src="{% static 'images/pic01.jpg' %}" height="10%" width="10%" alt="pic01"></a>
+                    <div class="inner">
+                      <header>
+                        <h2>Put something here</h2>
+                        <p>Maybe here as well I think</p>
+                      </header>
+                      <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+                    </div>
+                  </section>
+
               </div>
-              <div class="col-5 col-12-medium">
-                <ul>
-                  <li><a href="#" class="button large icon solid fa-arrow-circle-right">Ok let's go</a></li>
-                  <li><a href="#" class="button alt large icon solid fa-question-circle">More info</a></li>
-                </ul>
+              <div class="col-4 col-12-medium">
+
+                <!-- Box -->
+                  <section class="box feature">
+                    <a href="#" class="image featured"><img src="{% static 'images/pic02.jpg' %}" height="10%" width="10%" alt="My image"></a>
+                    <div class="inner">
+                      <header>
+                        <h2>An interesting title</h2>
+                        <p>This is also an interesting subtitle</p>
+                      </header>
+                      <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+                    </div>
+                  </section>
+
+              </div>
+              <div class="col-4 col-12-medium">
+
+                <!-- Box -->
+                  <section class="box feature">
+                    <a href="#" class="image featured"><img src="{% static 'images/pic03.jpg' %}" height="10%" width="10%" alt="My image"></a>
+                    <div class="inner">
+                      <header>
+                        <h2>Oh, and finally ...</h2>
+                        <p>Here's another intriguing subtitle</p>
+                      </header>
+                      <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+                    </div>
+                  </section>
+
               </div>
             </div>
           </div>
         </div>
-
+        {% endblock %}
+      <!-- Main Content -->
+      <section>
+        {% block content %}
+        {% endblock %}
+      </section>
 
       <!-- Footer -->
-        <div id="footer-wrapper">
-          <footer id="footer" class="container">
-            <div class="row">
-              <div class="col-3 col-6-medium col-12-small">
-
-                <!-- Links -->
-                  <section class="widget links">
-                    <p>Loja-Ecuador</p>
-                        <p>{% now "j F Y H:i" %}</p>
-                  </section>
-
-              
+      <footer id="footer" class="container">
+        <div class="row">
+          <div class="col-12">
+            <div id="copyright">
+              <ul class="menu">
+                <li>&copy; Untitled. All rights reserved</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
 
     <!-- Scripts -->
-
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.dropotron.min.js"></script>
-      <script src="assets/js/browser.min.js"></script>
-      <script src="assets/js/breakpoints.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script>
-
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

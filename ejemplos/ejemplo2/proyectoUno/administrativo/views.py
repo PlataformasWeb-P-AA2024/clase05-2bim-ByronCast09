@@ -31,6 +31,13 @@ def index(request):
     informacion_template = {'estudiantes': estudiantes, 'numero_estudiantes': len(estudiantes)}
     return render(request, 'index.html', informacion_template)
 
+def index2(request):
+    """
+    Redirige al usuario a la página de inicio de sesión
+    si no está autenticado.
+    """
+    return render(request, 'index2.html')
+
 def ingreso(request):
 
     if request.method == "POST":
@@ -52,7 +59,7 @@ def ingreso(request):
 def logout_view(request):
     logout(request)
     messages.info(request, "Has salido del sistema")
-    return redirect(index)
+    return redirect(index2)
 
 def obtener_estudiante(request, id):
     """
