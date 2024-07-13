@@ -8,10 +8,18 @@
 {% endblock %}
 
 {% block features %}
-{% endblock %}
+<div id="main-wrapper">
+          <div class="container">
+            <div class="row gtr-200">
+              <div class="col-12 col-md-8">
+                <div id="content">
 
-{% block content %}
-{% if request.resolver_match.url_name == 'index' %}
+                  <!-- Content -->
+                    <article>
+
+                      <h2>Listado de Estudiante</h2>
+
+                      <p>{% if request.resolver_match.url_name == 'index' %}
 <h3>Número de estudiantes {{ numero_estudiantes }}</h3>
 
 <table id="tabla_datos">
@@ -58,5 +66,14 @@
     $('#tabla_datos').DataTable();
   });
 </script>
-{% endif %}
+{% endif %}</p>
+</article>
+
+                
+ </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
 {% endblock %}

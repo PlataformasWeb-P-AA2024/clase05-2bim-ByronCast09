@@ -8,16 +8,31 @@
 {% endblock %}
 
 {% block features %}
+<div id="main-wrapper">
+          <div class="container">
+            <div class="row gtr-200">
+              <div class="col-8 col-12-medium">
+                <div id="content">
+
+                  <!-- Content -->
+                    <article>
+
+                      <h3>Datos de estudiante</h3>
+                      <p><p><b>Nombre:</b>{{estudiante.nombre}}</p>
+                        <p><b>Apellido:</b>{{estudiante.apellido}}</p>
+                        <p><b>Cédula:</b>{{estudiante.cedula}}</p>
+                        <p><b>Correo:</b>{{estudiante.correo}}</p>
+
+                        <br/></p>
+                    </article>
+
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
 {% endblock %}
 
 {% block content %}
-
-<h3>Datos de estudiante</h3>
-
-<p><b>Nombre:</b>{{estudiante.nombre}}</p>
-<p><b>Apellido:</b>{{estudiante.apellido}}</p>
-<p><b>Cédula:</b>{{estudiante.cedula}}</p>
-<p><b>Correo:</b>{{estudiante.correo}}</p>
-
-<br/>
 {% endblock %}

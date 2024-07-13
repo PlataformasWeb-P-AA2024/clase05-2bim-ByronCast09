@@ -8,15 +8,60 @@
 {% endblock %}
 
 {% block features %}
+<div id="main-wrapper">
+          <div class="container">
+            <div class="row gtr-200">
+              <div class="col-8 col-12-medium">
+                <div id="content">
+
+                  <!-- Content -->
+                    <article>
+
+                      <h2>Editar Estudiante</h2>
+
+                      <p><form action="" method="post">
+                        {% csrf_token %}
+                        {{formulario.as_p}}
+                        <p><input type='submit' value='Actualizar'/></p>
+                      </form></p>
+                    </article>
+
+                </div>
+              </div>
+              <div class="col-4 col-12-medium">
+                <div id="sidebar">
+
+                  <!-- Sidebar -->
+                    <section>
+                      <h3>Explicacion</h3>
+                      <p>Con ayuda de la herencia de los templates puedo modificar solo la parte que deseo en este caso el block features para agregar esta seccion que esta dividida en 2 partes el formulario para editar un estudiante y la segunda parte esta explicacion</p>
+                      <footer>
+                        <a href="#" class="button icon solid fa-info-circle">Find out more</a>
+                      </footer>
+                    </section>
+
+                    <section>
+                      <h3>Subheading</h3>
+                      <ul class="style2">
+                        <li><a href="#">Amet turpis, feugiat et sit amet</a></li>
+                        <li><a href="#">Ornare in hendrerit in lectus</a></li>
+                        <li><a href="#">Semper mod quis eget mi dolore</a></li>
+                        <li><a href="#">Quam turpis feugiat sit dolor</a></li>
+                        <li><a href="#">Amet ornare in hendrerit in lectus</a></li>
+                        <li><a href="#">Semper mod quisturpis nisi</a></li>
+                      </ul>
+                    </section>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 {% endblock %}
 
 {% block content %}
-<h2>Editar Estudiante</h3>
 
-<form action="" method="post">
-  {% csrf_token %}
-  {{formulario.as_p}}
-  <p><input type='submit' value='Actualizar'/></p>
-</form>
+
+
 
 {% endblock %}
